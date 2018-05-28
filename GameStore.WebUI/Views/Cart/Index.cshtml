@@ -1,0 +1,36 @@
+﻿@model GameStore.WebUI.Models.CartIndexViewModel
+
+@{
+    ViewBag.Title = "Корзина";
+}
+
+<table>
+    <thead>
+    <th>Количество</th>
+    <th>Игра</th>
+    <th class="text-right">Цена</th>
+    <th class="text-right">Общая цена</th>
+    </thead>
+    <tbody>
+        @foreach (GameStore.Domain.Entities.CartLine cartLine in Model.Cart.Lines) {
+            <tr>
+                <td class="text-center">@cartLine.Quantity</td>
+                <td class="text-left">@cartLine.Game.Name</td>
+                <td class="text-right">@cartLine.Game.Price.ToString("# руб.")</td>
+                <td class="text-right">@((cartLine.Game.Price * cartLine.Quantity).ToString("# руб."))</td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-right">Итого:</td>
+            <td class="text-right">
+                @Model.Cart.ComputeTotalValue().ToString("# руб")
+            </td>
+        </tr>
+    </tfoot>
+</table>
+
+<div class="text-center">
+    <a class="btn btn-primary" href="@Model.ReturnUrl">Продолжить покупки</a>
+</div>
