@@ -4,7 +4,13 @@
     ViewBag.Title = "Корзина";
 }
 
-<table>
+<style>
+    #cartTable td {
+        vertical-align: middle;
+    }
+</style>
+
+<table id="cartTable" class="table">
     <thead>
     <th>Количество</th>
     <th>Игра</th>
@@ -18,6 +24,13 @@
                 <td class="text-left">@cartLine.Game.Name</td>
                 <td class="text-right">@cartLine.Game.Price.ToString("# руб.")</td>
                 <td class="text-right">@((cartLine.Game.Price * cartLine.Quantity).ToString("# руб."))</td>
+                <td>
+                    @using (Html.BeginForm("RemoveFromCart", "Cart")) {
+                      @Html.Hidden("gameId", cartLine.Game.GameId);
+                      @Html.Hidden("returnUrl", Model.ReturnUrl);
+                      <input type="submit" class="btn btn-sm btn-warning" value="Удалить"/>
+                    }
+                </td>
             </tr>
         }
     </tbody>
@@ -33,4 +46,5 @@
 
 <div class="text-center">
     <a class="btn btn-primary" href="@Model.ReturnUrl">Продолжить покупки</a>
+    @Html.ActionLink("Оформить заказ", "Checkout", null, new { @class = "btn btn-primary" })
 </div>
