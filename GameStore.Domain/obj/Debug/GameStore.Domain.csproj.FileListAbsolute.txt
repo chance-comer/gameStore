@@ -21,3 +21,4 @@ C:\Users\kazantseva\Source\repos\GameStore\GameStore.Domain\bin\Debug\EntityFram
 C:\Users\kazantseva\Source\repos\GameStore\GameStore.Domain\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\kazantseva\Source\repos\GameStore\GameStore.Domain\bin\Debug\EntityFramework.xml
 C:\Users\kazantseva\Source\repos\GameStore\GameStore.Domain\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\kazantseva\Source\repos\GameStore\GameStore.Domain\obj\Debug\GameStore.Domain.csprojResolveAssemblyReference.cache
